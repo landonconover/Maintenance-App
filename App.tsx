@@ -53,13 +53,13 @@ export default function App() {
     },
   ]);
 
-  const onSubmit = (data) => {
+  const onSubmit = ({ text, freq, due }) => {
     const newItems: Item[] = [
       {
         id: items.length + 1,
-        text: data.text,
-        freq: data.freq,
-        due: dayjs(data.due).toDate(),
+        text,
+        freq,
+        due: dayjs(due).toDate(),
         complete: false,
       },
       ...items,

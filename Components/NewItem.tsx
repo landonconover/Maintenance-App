@@ -2,16 +2,12 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function List({ getData }) {
-
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  // const onSubmit = data => console.log("data",data);
-
-
 
   return (
     <div>
