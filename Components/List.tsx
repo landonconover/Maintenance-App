@@ -1,8 +1,7 @@
 import * as React from 'react';
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 export default function List({ header, freq, items }) {
-  console.log(dayjs)
   return (
     <div>
       <h1>{header}</h1>
@@ -10,7 +9,9 @@ export default function List({ header, freq, items }) {
         {items
           .filter((item) => item.freq === freq)
           .map((item) => (
-            <li>{item.text} - {"date"}</li>
+            <li>
+              {item.text} - {dayjs(item.due).format('DD/MM/YYYY')}
+            </li>
           ))}
       </ul>
     </div>
