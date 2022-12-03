@@ -9,8 +9,8 @@ export default function List({ header, freq, items }) {
         {items
           .filter((item) => item.freq === freq)
           .map((item) => (
-            <li>
-              {item.text} - {dayjs(item.due).format('DD/MM/YYYY')}
+            <li key={item.id}>
+              {item.text} - {dayjs(item.due).format('dddd - MMM.DD.YYYY')}
             </li>
           ))}
       </ul>

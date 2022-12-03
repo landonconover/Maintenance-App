@@ -26,19 +26,19 @@ const items: Item[] = [
     due: new Date(2022, 12, 3),
   },
   {
-    id: 0,
+    id: 1,
     text: 'Vaccum Front Room',
     freq: Freq.Weekly,
     due: new Date(2022, 12, 5),
   },
   {
-    id: 0,
+    id: 2,
     text: 'Clean Toilet',
     freq: Freq.Weekly,
     due: new Date(2022, 12, 5),
   },
   {
-    id: 0,
+    id: 3,
     text: 'Empty Water Heater',
     freq: Freq.Yearly,
     due: new Date(2023, 1, 1),
