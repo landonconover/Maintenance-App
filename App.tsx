@@ -21,7 +21,25 @@ type Item = {
   complete: boolean;
 };
 
+const freqArray = [Freq.Daily,Freq.Weekly,Freq.Monthly,Freq.Quarterly,Freq.Yearly]
+
 export default function App() {
+
+  function renderLists(items:Item[], freqs) {
+    return freqs.map(freq => {
+      return items.some((item) => item.freq === freq) ? (
+        <List
+          handleComplete={itemComplete}
+          header={freq}
+          freq={freq}
+          items={items}
+        />
+      ) : (
+        ''
+      )
+    })
+  }
+
   const [items, setItems] = useState<Item[]>([
     {
       id: 0,
@@ -84,56 +102,8 @@ export default function App() {
     <div>
       <NewItem getData={onSubmit} />
 
-      {items.some((item) => item.freq === 'DAILY') ? (
-        <List
-          handleClick={itemComplete}
-          header={'Daily'}
-          freq={Freq.Daily}
-          items={items}
-        />
-      ) : (
-        ''
-      )}
-      {items.some((item) => item.freq === 'WEEKLY') ? (
-        <List
-          handleClick={itemComplete}
-          header={'Weekly'}
-          freq={Freq.Weekly}
-          items={items}
-        />
-      ) : (
-        ''
-      )}
-      {items.some((item) => item.freq === 'MONTHLY') ? (
-        <List
-          handleClick={itemComplete}
-          header={'Monthly'}
-          freq={Freq.Monthly}
-          items={items}
-        />
-      ) : (
-        ''
-      )}
-      {items.some((item) => item.freq === 'QUARTERLY') ? (
-        <List
-          handleClick={itemComplete}
-          header={'Quarterly'}
-          freq={Freq.Quarterly}
-          items={items}
-        />
-      ) : (
-        ''
-      )}
-      {items.some((item) => item.freq === 'YEARLY') ? (
-        <List
-          handleClick={itemComplete}
-          header={'Yearly'}
-          freq={Freq.Yearly}
-          items={items}
-        />
-      ) : (
-        ''
-      )}
+      {renderLists(items, freqArray)}
+
     </div>
   );
 }
